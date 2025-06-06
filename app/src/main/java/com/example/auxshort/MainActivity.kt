@@ -144,9 +144,11 @@ class MainActivity : AppCompatActivity() {
             onDeleteClick = { urlItem, position ->
                 showDeleteConfirmationDialog(urlItem, position)
             },
-            onAnalyticsClick = { urlItem ->
-                Toast.makeText(this, "Analytics: ${urlItem.shortened}", Toast.LENGTH_SHORT).show()
-                Log.d(TAG, "Analytics clicked for URL: ${urlItem.original}")
+            onAnalyticsClick = { urlItem->
+                val urlId : String = urlItem.shortened.toString().substringAfter("/")
+                val intent = Intent(this, AnalyticActivity::class.java)
+                intent.putExtra("URL_ID", urlId)
+                startActivity(intent)
             }
         )
         recyclerView.layoutManager = LinearLayoutManager(this)

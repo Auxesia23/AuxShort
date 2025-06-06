@@ -30,6 +30,11 @@
             android:exported="false">
         </activity>
 
+        <activity
+            android:name=".AnalyticActivity"
+            android:exported="false">
+        </activity>
+
 
     </application>
 

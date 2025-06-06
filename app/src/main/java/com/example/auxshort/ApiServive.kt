@@ -12,6 +12,53 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 
+
+data class AnalyticResponse(
+    @SerializedName("analytic")
+    val analytic: AnalyticData?,
+
+    @SerializedName("url")
+    val url: UrlItem?
+)
+
+data class AnalyticData(
+    @SerializedName("total_click")
+    val totalClick: Int?,
+
+    @SerializedName("clicks_per_day")
+    val clicksPerDay: List<ClicksPerDay>?,
+
+    @SerializedName("clicks_per_country")
+    val clicksPerCountry: List<ClicksPerCountry>?,
+
+    @SerializedName("clicks_per_user_agent")
+    val clicksPerUserAgent: List<ClicksPerUserAgent>?
+)
+
+data class ClicksPerDay(
+    @SerializedName("date")
+    val date: String?,
+
+    @SerializedName("count")
+    val count: Int?
+)
+
+data class ClicksPerCountry(
+    @SerializedName("name")
+    val name: String?,
+
+    @SerializedName("count")
+    val count: Int?
+)
+
+data class ClicksPerUserAgent(
+    @SerializedName("name")
+    val name: String?,
+
+    @SerializedName("count")
+    val count: Int?
+)
+
 data class UrlResponse(
     @SerializedName("urls")
     val urls: List<UrlItem>?
@@ -50,6 +97,12 @@ interface ApiService {
         @Header("Authorization") token : String,
         @Body requestBody: CreateUrlRequest
     ) : Call<UrlItem>
+
+    @GET("v1/urls/{id}")
+    fun getUrlAndAnalytic(
+        @Header("Authorization") token : String,
+        @Path("id", encoded = false) id : String,
+    ) : Call<AnalyticResponse>
 
     @GET("v1/urls")
     fun getUrls(

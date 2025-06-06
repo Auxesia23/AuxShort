@@ -12,8 +12,8 @@ import java.util.Locale
 
 class UrlAdapter(
     private var urls: MutableList<UrlItem>,
-    private val onDeleteClick: (UrlItem, Int) -> Unit, // Pass position as well
-    private val onAnalyticsClick: (UrlItem) -> Unit
+    private val onDeleteClick: (UrlItem, Int) -> Unit,
+    private val onAnalyticsClick: (UrlItem) -> Unit,
 ) : RecyclerView.Adapter<UrlAdapter.UrlViewHolder>() {
 
     // Formatter for parsing the ISO 8601 date string from the server.
