@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tambah URL Baru"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Input untuk Original URL -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutOriginalUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Put your long URL here">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextOriginalUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textUri" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Label untuk custom alias -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Custom alias"
+        android:textColor="?android:attr/textColorSecondary"
+        />
+
+    <!-- Layout horizontal untuk prefix dan input -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="auxesia.me/"
+            android:textSize="16sp"
+            android:layout_marginEnd="4dp" />
+
+        <EditText
+            android:id="@+id/editTextShortenedUrl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="text" />
+
+    </LinearLayout>
+
+</LinearLayout>

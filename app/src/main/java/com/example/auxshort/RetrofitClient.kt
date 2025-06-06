@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitClient {
 
     // GANTI DENGAN BASE URL SERVER ANDA YANG SEBENARNYA
-    private const val BASE_URL = "https://b5db-125-163-13-14.ngrok-free.app/" // Contoh: "http://10.0.2.2:8080/" untuk emulator ke localhost host
+    private const val BASE_URL = "http://10.0.2.2:8080/" // Contoh: "http://10.0.2.2:8080/" untuk emulator ke localhost host
 
     private val okHttpClient: OkHttpClient by lazy {
         val logging = HttpLoggingInterceptor()
